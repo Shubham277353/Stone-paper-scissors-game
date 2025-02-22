@@ -1,102 +1,66 @@
-// for(let i = 1;i<=5;i++){
+function getComputerChoice (){
+    let compChoice = Math.floor(Math.random()*3);
+    if (compChoice === 1) return "Stone";
+    if (compChoice === 0) return "Paper";
+    if (compChoice === 2) return "Scissors";
+}
+
+function getHumanChoice(str){
+    str = str.toLowerCase();
+    if (str === "stone") return "Stone";
+    if (str === "paper") return "Paper";
+    if (str === "scissors") return "Scissors";
+    return -1;
+}
+
+function playGame(){
+
 let humanScore = 0;
 let computerScore = 0;
 
+function playRound(newHumanChoice , computerchoice){
 
-let cChoice = Math.floor(Math.random() *3);
+    if (newHumanChoice === computerchoice){
+        console.log("Oh! It's a draw. Each player gets 0 point.");
+    }
+    else if (newHumanChoice === "Stone" && computerchoice === "Scissors" ||
+        newHumanChoice === "Paper" && computerchoice === "Stone" || 
+        newHumanChoice === "Scissors" && computerchoice === "Paper" ){
+        humanScore += 1;
+            console.log("Bravo!! , You won ; You gets 1 point . ")
+        }
 
-function getComputerChoice(cChoice){
-    let choices = 0;
-        if(cChoice === 0){
-            choices = 0;
-        }
-        else if (cChoice === 1){
-             choices = 1;
-        }
-        else if (cChoice === 2) {
-             choices = 2;
-        }
-        console.log(choices)  ;
-        return choices;
-        
-}
-
-
-function getHumanChoice(str){
-    let Human = 0;
-
-    if(str === "paper"){
-        Human = 0;
-    }
-    if(str === "stone"){
-        Human = 1;
-    }
-    if(str === "scissors"){
-        Human = 2;
-    }
-    console.log(Human) ;
-    return Human;
-}
-function playRound (a,b){
-    if (a === 0){
-        if (a - b === 0){
-            humanScore += 1;
-            computerScore += 1;
-             console.log("Oh! its a draw each player gets 10 point .");
-        }
-        else if (a - b === -1){
-            computerScore = computerScore + 1 ;
-             console.log("Oops! you lost ( paper beats stone) opponent gets 1 point.");
-        }
-        else if (a - b === -2){
-            humanScore = humanScore + 1 ;
-             console.log("Bravo! you won ( scissors beats paper) You get 1 point.");
-        }
-    }
-    
-    if (a === 1){
-        if (a - b === 0){
-            humanScore = 1;
-            computerScore = 1;
-             console.log("Oh! its a draw each player gets 100 point.");
-        }
-        else if (a - b === 1){
-            humanScore = humanScore + 1 ;
-             console.log("Bravo! you won ( paper beats stone) You get 1 point.");
-        }
-        else if (a - b === -1){
-            computerScore = computerScore + 1 ;
-             console.log("oops! you lost ( stone beats scissors) Opponent gets 1 point.");
-        }
-    }
-    
-    if (a === 2){
-        if (a - b  === 0){
-            humanScore = 1;
-            computerScore = 1;
-             console.log("Oh! its a draw each player gets 1000 point.");
-        }
-        else if (a - b === 1){
-            humanScore = humanScore + 1 ;
-             console.log("Bravo! you won ( stone beats scissors) You get 1 point.");
-        }
-        else if (a - b === 2){
-            computerScore = computerScore + 1 ;
-             console.log("oops! you lost ( scissors beats paper) Opponent gets 1 point.");
-        }
+    else {
+        computerScore += 1;
+        console.log("Oops!! , You lost ; Opponent gets 1 point . ")
     }
 }
-    let HumanChoice = prompt ("Enter your choice (Stone , Paper , Scissors) : ")
-    HumanChoice = HumanChoice.toLowerCase();
-    if (HumanChoice !== "stone" && HumanChoice !== "paper" && HumanChoice !== "scissors"){
-        console.log("Please choose between stone , paper and Scissors only .");
+
+for(let i = 1 ; i <= 5 ; i++){
+    let humanChoice = prompt("Enter your choice (Stone , Paper, Scissors) : ");
+    let newHumanChoice = getHumanChoice(humanChoice);
+
+    if (newHumanChoice === -1 ){
+        console.log ("Invalid choice. Please choose between Stone, Paper, and Scissors.");
+        i--;
+        continue ;
     }
-    
-    const choice = getComputerChoice(cChoice);
-    const HChoice = getHumanChoice(HumanChoice);
 
-    
-    playRound(choice,HChoice);
+    let computerchoice = getComputerChoice();
+    console.log (`\n\nYou chose : ${newHumanChoice} \nOpponent chose : ${computerchoice} `)
+    playRound(newHumanChoice,computerchoice);
+    console.log(`Score: \nYou = ${humanScore} \nOpponent = ${computerScore}`);
 
+}
 
-
+console.log(`\nFinal Score: \nYou = ${humanScore} \nOpponent = ${computerScore}`);
+if (humanScore === computerScore) {
+    console.log("Wow, it's a draw. Well played!");
+} else if (humanScore > computerScore) {
+    console.log("Congratulations!!!! You won!");
+} else {
+    console.log("Sadly, you lost. Well played though.");
+}
+}
+ 
+playGame();
