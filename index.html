@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stone-Paper-Scissor</title>
-</head>
-<body>
-        <script src="/Stone-paper-scissors-game/script.js"></script>
-    
-</body>
+    <link rel="stylesheet" href="/Stone-paper-scissors-game/style.css" />
+  </head>
+  <body>
+    <script src="/Stone-paper-scissors-game/script.js"></script>
+
+    <div class="title">Stone Paper Scissors Game</div>
+
+    <div class="choices">
+      <button class="buttons stone game-button">
+        <img src="/Stone-paper-scissors-game/images/stone.png" alt="Stone" />
+      </button>
+      <button class="buttons paper game-button">
+        <img src="/Stone-paper-scissors-game/images/paper.png" alt="Paper" />
+      </button>
+      <button class="buttons scissors game-button">
+        <img
+          src="/Stone-paper-scissors-game/images/scissors.png"
+          alt="Scissors"
+        />
+      </button>
+    </div>
+    <div class="players">
+    <div class="player1">
+      <p id="score">0</p>
+      <p>You</p>
+    </div>
+    <div class="player2">
+      <p id="score">0</p>
+      <p>Opponent</p>
+    </div></div>
+<!-- 
+    <div id="win-msg">
+      <p></p>
+    </div> -->
+  </body>
 </html>
