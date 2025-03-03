@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/Stone-paper-scissors-game/style.css" />
   </head>
   <body>
-    <script src="/Stone-paper-scissors-game/script.js"></script>
+
 
     <div class="title">Stone Paper Scissors Game</div>
 
@@ -27,16 +27,26 @@
     </div>
     <div class="players">
     <div class="player1">
-      <p id="score">0</p>
+      <p id="userscore">0</p>
       <p>You</p>
     </div>
     <div class="player2">
-      <p id="score">0</p>
+      <p id="compscore">0</p>
       <p>Opponent</p>
     </div></div>
-<!-- 
+
     <div id="win-msg">
-      <p></p>
-    </div> -->
+      <p id="msg">Play Your Turn</p>
+    </div>
+
+    <div id="popUp">
+      <div id="popUpContent">
+        <h2 id="game-over">Game Over</h2>
+        <p id="finalScore"></p>
+        <button id="restart-button">RESTART</button>
+      </div>
+    </div>
+
+    <script src="/Stone-paper-scissors-game/script.js"></script>
   </body>
 </html>

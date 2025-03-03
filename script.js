@@ -1,7 +1,12 @@
-let gameContainer = document.querySelector("div");
-let optionStone = document.querySelector(".stone");
-let optionPaper = document.querySelector(".paper");
-let optionScissors = document.querySelector(".scissors");
+
+let stone = document.querySelector(".stone");
+let paper = document.querySelector(".paper");
+let scissors = document.querySelector(".scissors");
+const userScore = document.querySelector("#userscore");
+const compScore = document.querySelector("#compscore");
+const message = document.querySelector("#msg");
+
+
 
 function getComputerChoice() {
     const choices = ["Stone", "Paper", "Scissors"];
@@ -11,36 +16,60 @@ function getComputerChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+let round = 0;
+
 
 function playRound(newHumanChoice) {
+  round++;
+  let computerchoice = getComputerChoice();
+  console.log(`Your choice = ${newHumanChoice}`)
+  console.log(`Opponent's choice = ${computerchoice}`)
   if (newHumanChoice === computerchoice) {
-    console.log("Oh! It's a draw. Each player gets 0 point.");
+    message.textContent = "Oh! It's a draw.";
   } else if (
     (newHumanChoice === "Stone" && computerchoice === "Scissors") ||
     (newHumanChoice === "Paper" && computerchoice === "Stone") ||
     (newHumanChoice === "Scissors" && computerchoice === "Paper")
   ) {
     humanScore += 1;
-    console.log("Bravo!! , You won ; You gets 1 point . ");
+    message.textContent = "Bravo!! , You won .";
+    message.style.backgroundColor = "green";
   } else {
     computerScore += 1;
-    console.log("Oops!! , You lost ; Opponent gets 1 point . ");
+    message.textContent = "Oops!! , You lost . ";
+    message.style.backgroundColor = "red";
+
+    
+  }
+
+  userScore.textContent = humanScore;
+  compScore.textContent = computerScore;
+
+  if(round === 5){
+    endGame();
   }
 }
 
-let computerchoice = getComputerChoice();
 
-optionStone.addEventListener("click",() => playRound("Stone"));
-optionPaper.addEventListener("click",() => playRound("Paper"));
-optionScissors.addEventListener("click",() => playRound("Scissors"));
+  function endGame() {
+    let message;
+    if (humanScore === computerScore) {
+        message.textContent = "Wow, it's a draw. Well played!";
+    } else if (humanScore > computerScore) {
+        message.textContent = "Congratulations!!!! You won!";
+    } else {
+        message.textContent = "Sadly, you lost. Well played though.";
+    }
 
-console.log(
-  `\nFinal Score: \nYou = ${humanScore} \nOpponent = ${computerScore}`
-);
-if (humanScore === computerScore) {
-  console.log("Wow, it's a draw. Well played!");
-} else if (humanScore > computerScore) {
-  console.log("Congratulations!!!! You won!");
-} else {
-  console.log("Sadly, you lost. Well played though.");
+    stone.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+
 }
+
+
+stone.addEventListener("click",() => playRound("Stone"));
+paper.addEventListener("click",() => playRound("Paper"));
+scissors.addEventListener("click",() => playRound("Scissors"));
+
+

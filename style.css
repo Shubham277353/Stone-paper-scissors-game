@@ -13,7 +13,7 @@ body{
 .title{
   font-size: 2rem;
   padding: 1rem;
-  background-color: rgb(6, 6, 43);
+  background-color: #081b31;
   color: white ;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -22,7 +22,7 @@ body{
   margin-top: 5rem;
   display: flex;
   justify-content: center;
-  gap: 8rem;
+  gap: 6rem;
 }
 
 .game-button{
@@ -53,6 +53,7 @@ img{
   margin-top: 4rem;
   font-size: 2rem;
   gap: 6rem;
+
   
 }
 
@@ -60,6 +61,31 @@ img{
   font-size: 3.5rem;
 }
 
+#win-msg{
+  text-align: center;
+  margin-top: 3rem;
 
+}
+
+#msg{
+  background-color: #081b31;
+  display: inline;
+  font-size: 2rem;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+#restartButton{
+  margin-top: 2rem;
+  background-color: greenyellow;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.8rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
 
 
