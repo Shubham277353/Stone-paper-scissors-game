@@ -20,6 +20,8 @@ restart.addEventListener("click", () => {
   computerScore = 0;
   userScore.textContent = 0;
   compScore.textContent = 0;
+  message.textContent = "Play Your Turn";
+  message.style.backgroundColor = "#081b31";
 
   console.log(humanScore);
   console.log(computerScore);
