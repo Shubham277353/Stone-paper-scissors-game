@@ -71,19 +71,6 @@ img {
   padding: 1rem;
   border-radius: 1rem;
 }
-
-#restartButton {
-  margin-top: 2rem;
-  background-color: greenyellow;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.8rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  font-weight: 700;
-}
-
 .popup {
   display: none;
   position: fixed;
@@ -121,6 +108,7 @@ img {
   border-radius: 2rem;
   background-color: greenyellow;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .content h2 {
