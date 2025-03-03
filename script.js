@@ -2,9 +2,12 @@
 let stone = document.querySelector(".stone");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
-const userScore = document.querySelector("#userscore");
-const compScore = document.querySelector("#compscore");
+let userScore = document.querySelector("#userscore");
+let compScore = document.querySelector("#compscore");
 const message = document.querySelector("#msg");
+const finalMessage = document.querySelector("#finalScore")
+const popUp = document.querySelector("#popup")
+const restart = document.querySelector("#restart-button")
 
 
 
@@ -13,6 +16,19 @@ function getComputerChoice() {
     const randomIndex = Math.floor(Math.random() * 3);
     return choices[randomIndex];
 }
+
+restart.addEventListener("click", () => {
+  round  = 0;
+  humanScore = 0;
+  computerScore = 0; 
+  userScore.textContent = 0;
+  compScore.textContent = 0;
+
+  console.log(humanScore);
+  console.log(computerScore);
+  popUp.style.display = "none";
+})
+
 
 let humanScore = 0;
 let computerScore = 0;
@@ -52,18 +68,15 @@ function playRound(newHumanChoice) {
 
 
   function endGame() {
-    let message;
     if (humanScore === computerScore) {
-        message.textContent = "Wow, it's a draw. Well played!";
+        finalMessage.textContent = "Wow, it's a draw. Well played!";
     } else if (humanScore > computerScore) {
-        message.textContent = "Congratulations!!!! You won!";
+      finalMessage.textContent = "Congratulations!!!! You won!";
     } else {
-        message.textContent = "Sadly, you lost. Well played though.";
+      finalMessage.textContent = "Sadly, you lost. Well played though.";
     }
 
-    stone.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
+  popUp.style.display = "flex"
 
 }
 
